@@ -16,7 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5PV-Pz-V9g">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="F9q-GH-sdm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5PV-Pz-V9g">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qHk-zV-vPp">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -26,10 +29,14 @@
                             </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.40092682867888813" green="0.62067237126730657" blue="0.72432516079741949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5PV-Pz-V9g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Tr-vw-0kh"/>
+                            <constraint firstAttribute="bottom" secondItem="F9q-GH-sdm" secondAttribute="bottom" id="8ri-1A-JeH"/>
                             <constraint firstAttribute="bottom" secondItem="5PV-Pz-V9g" secondAttribute="bottom" id="D4W-Po-lZa"/>
+                            <constraint firstItem="F9q-GH-sdm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GQT-JN-4Th"/>
+                            <constraint firstItem="F9q-GH-sdm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JS2-Pf-8hd"/>
+                            <constraint firstItem="F9q-GH-sdm" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="bTb-TR-e3A"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5PV-Pz-V9g" secondAttribute="trailing" id="rTr-Eh-7qq"/>
                             <constraint firstItem="5PV-Pz-V9g" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xbK-eJ-6FP"/>
                         </constraints>
@@ -40,4 +47,7 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="imgMainBackground" width="1600" height="1200"/>
+    </resources>
 </document>
