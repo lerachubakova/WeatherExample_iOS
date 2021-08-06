@@ -7,4 +7,6 @@ target 'WeatherExample' do
 
   # Pods for WeatherExample
   pod 'SwiftLint','0.43.1'
+  pod 'ReactiveKit','3.17.4'
+  pod 'Bond','7.8.1'
 end
