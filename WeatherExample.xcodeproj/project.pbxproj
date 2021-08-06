@@ -111,11 +111,19 @@
 		CEE2721E26BD63F00092C200 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				CEE2720626BD5F3B0092C200 /* ViewController.swift */,
-				CEE2720826BD5F3B0092C200 /* Main.storyboard */,
 				CEE2721026BD5F3D0092C200 /* LaunchScreen.storyboard */,
+				CEE2721F26BD64760092C200 /* Main */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		CEE2721F26BD64760092C200 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CEE2720626BD5F3B0092C200 /* ViewController.swift */,
+				CEE2720826BD5F3B0092C200 /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		F36E6877A2D5E0A7DAB14274 /* Frameworks */ = {
