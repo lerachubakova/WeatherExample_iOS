@@ -5,38 +5,55 @@
 //  Created by User on 6.08.21.
 //
 
+import Bond
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        makeRequest()
+    
+    @IBOutlet private weak var sityLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var temperatureLabel: UILabel!
+    @IBOutlet private weak var feelsLikeLabel: UILabel!
+    @IBOutlet private weak var pressureLabel: UILabel!
+    @IBOutlet private weak var humidityLabel: UILabel!
+    @IBOutlet private weak var sunriseLabel: UILabel!
+    @IBOutlet private weak var sunsetLabel: UILabel!
+    
+    private let viewModel = WeatherViewModel()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.weatherRequest()
     }
     
-    func makeRequest() {
-        let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?q=minsk&appid=d56b344d09f0de91f1df36c266fd49db")!
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard error == nil else {
-                print("Error: \(error!.localizedDescription)")
-                return
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.transparent()
+        bindWeatherViewModel()
+    }
+    
+    private func bindWeatherViewModel() {
+        _ =  viewModel.weather.observeNext(with: { [unowned self] weatherModel in
+            guard weatherModel.sity != "" else { return }
+            DispatchQueue.main.async {
+                self.configureScreen(with: weatherModel)
             }
-     
-//            guard let httpResponse = response as? HTTPURLResponse else { return }
-//
-//            print(httpResponse.statusCode)
-
-            if let data = data {
-                if let response = try? JSONDecoder().decode(ResponseModel.self, from: data) {
-                    print(response)
-                }
-                if let weather = try? JSONDecoder().decode(WeatherModel.self, from: data) {
-                    print(weather)
-                } else {
-                    print("Something with weather went wrong")
-                }
-            }
-        }.resume()
+        })
+    }
+    
+    private func configureScreen(with weatherModel: WeatherResponseModel) {
+        sityLabel.text = weatherModel.sity
+        descriptionLabel.text = weatherModel.weather[0].description.capitalizeFirstLetter()
+        temperatureLabel.text = weatherModel.temp.temp.toCelcium().format(f: ".1") + "°C"
+        feelsLikeLabel.text = weatherModel.temp.feelsTemp.toCelcium().format(f: ".1") + "°C"
+        pressureLabel.text = weatherModel.temp.pressure.format(f: "04") + "hPa"
+        humidityLabel.text = weatherModel.temp.humidity.format(f: "02") + "%"
+        let sunriseDate = Date(timeIntervalSince1970: TimeInterval(weatherModel.sun.sunrise))
+        let sunsetDate = Date(timeIntervalSince1970: TimeInterval(weatherModel.sun.sunset))
+        sunriseLabel.text = sunriseDate.getFormatString(format: "HH:mm")
+        sunsetLabel.text = sunsetDate.getFormatString(format: "HH:mm")
+    }
+    
+    @IBAction private func tappedRefreshButton(_ sender: Any) {
+        viewModel.weatherRequest()
     }
 }

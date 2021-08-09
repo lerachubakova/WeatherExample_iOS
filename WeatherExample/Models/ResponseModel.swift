@@ -8,11 +8,16 @@
 import Foundation
 
 struct ResponseModel: Codable {
-    let cod: Int
+    let code: Int
     let message: String
 
+    private enum CodingKeys: String, CodingKey {
+        case code = "cod"
+        case message = "message"
+    }
+    
     init(code: Int, mes: String) {
-        self.cod = code
+        self.code = code
         self.message = mes
     }
 }
