@@ -9,6 +9,7 @@ import Foundation
 
 class NetworkManager {
     static let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?q=minsk&appid=d56b344d09f0de91f1df36c266fd49db")!
+    // TODO: query
     
     static func makeWeatherRequest( completion: @escaping (ResponseModel?, WeatherResponseModel?) -> Void ) {
         var result: (ResponseModel?, WeatherResponseModel?)

@@ -6,12 +6,14 @@
 //
 
 import Bond
-import UIKit
+import Foundation
 
 class WeatherViewModel {
     var weather = Observable<WeatherResponseModel>(WeatherResponseModel())
+    weak var controller: ViewController?
     
-    init() {
+    init(vc: ViewController) {
+        self.controller = vc
         weatherRequest()
     }
     
@@ -23,6 +25,12 @@ class WeatherViewModel {
             guard let weatherResponse = weatherResponseModel else { return }
             print(weatherResponse.toString())
             self.weather.value = weatherResponse
+            saveInCoreData()
+            // TODO: controller. function enable UI
         }
+    }
+    
+    private func saveInCoreData() {
+        // TODO: savi in core data
     }
 }

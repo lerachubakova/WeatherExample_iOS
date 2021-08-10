@@ -5,12 +5,12 @@
 //  Created by User on 6.08.21.
 //
 
-import Bond
 import UIKit
 
 class ViewController: UIViewController {
     
     @IBOutlet private weak var sityLabel: UILabel!
+    // TODO: SkyFloatingTextField
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var feelsLikeLabel: UILabel!
@@ -19,14 +19,11 @@ class ViewController: UIViewController {
     @IBOutlet private weak var sunriseLabel: UILabel!
     @IBOutlet private weak var sunsetLabel: UILabel!
     
-    private let viewModel = WeatherViewModel()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        viewModel.weatherRequest()
-    }
+    private var viewModel: WeatherViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = WeatherViewModel(vc: self)
         self.navigationController?.navigationBar.transparent()
         bindWeatherViewModel()
     }
@@ -53,7 +50,13 @@ class ViewController: UIViewController {
         sunsetLabel.text = sunsetDate.getFormatString(format: "HH:mm")
     }
     
+    func enableUI() {
+        // TODO: enable UI
+        // TODO: off krutiolka
+    }
+    
     @IBAction private func tappedRefreshButton(_ sender: Any) {
         viewModel.weatherRequest()
+        // TODO: downloading PKHUD && block UI
     }
 }
