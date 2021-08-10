@@ -36,7 +36,7 @@ class CoreDataManager {
             context.insert(newWeatherItem)
             try context.save()
         } catch (let error) {
-            print("### \(self.debugDescription): addItem: \(error)")
+            print("\(self.debugDescription): addItem: \(error.localizedDescription)")
         }
     }
     
@@ -46,7 +46,7 @@ class CoreDataManager {
         return nil
     }
     
-    static private func getItemsFromContext() -> [WeatherItem] {
+    static func getItemsFromContext() -> [WeatherItem] {
         let request = WeatherItem.fetchRequest() as NSFetchRequest<WeatherItem>
         if var items = try? context.fetch(request) {
             items.sort(by: {$0.requestDate!.compare($1.requestDate!).rawValue == 1})
@@ -56,4 +56,13 @@ class CoreDataManager {
         return []
     }
     
+    static func deleteItemFromContext(item: WeatherItem) {
+        do {
+            context.delete(item)
+            try context.save()
+        } catch (let error) {
+            print("\(self.debugDescription): deleteItemFromContext: \(error.localizedDescription)")
+        }
+        
+    }
 }

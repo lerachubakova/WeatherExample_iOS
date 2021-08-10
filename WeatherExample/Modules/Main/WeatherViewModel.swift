@@ -10,9 +10,9 @@ import Foundation
 
 class WeatherViewModel {
     var weather = Observable<WeatherResponseModel>(WeatherResponseModel())
-    weak var controller: ViewController?
+    weak var controller: MainViewController?
     
-    init(vc: ViewController) {
+    init(vc: MainViewController) {
         self.controller = vc
         if let weatherItem = CoreDataManager.getLastItem() {
             controller?.configureScreen(with: weatherItem)

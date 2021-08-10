@@ -8,7 +8,7 @@
 import Foundation
 
 extension Int {
-    func format(f: String) -> String {
+    func getFormatString(f: String) -> String {
         // 03 = "000"
         // 05 = "00000"
         return String(format: "%\(f)d", self)

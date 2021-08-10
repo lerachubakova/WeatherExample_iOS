@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--WeatherList-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="WeatherListViewController" customModule="WeatherExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="X7P-dR-WGr">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMK-71-k6N">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9t1-4N-ZhM">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmx-3G-Hc6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X7P-dR-WGr" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="4uF-Ye-OSZ"/>
+                            <constraint firstItem="X7P-dR-WGr" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ce4-c4-MIW"/>
+                            <constraint firstItem="jmx-3G-Hc6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DZt-io-dzw"/>
+                            <constraint firstItem="jmx-3G-Hc6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="OCo-40-RWK"/>
+                            <constraint firstItem="jmx-3G-Hc6" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="daq-ST-3eU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jmx-3G-Hc6" secondAttribute="trailing" id="fCc-js-I3U"/>
+                            <constraint firstAttribute="bottom" secondItem="X7P-dR-WGr" secondAttribute="bottom" id="mDF-lU-Day"/>
+                            <constraint firstItem="X7P-dR-WGr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="mw5-Ze-mby"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="WeatherList" id="sBL-74-wB7">
+                        <barButtonItem key="backBarButtonItem" title=" " id="80Y-IE-Ici"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="jmx-3G-Hc6" id="YsR-hM-A4O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16" y="82"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="imgMainBackground" width="1600" height="1200"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!-- -->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="WeatherExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,7 +282,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="43"/>
                                 </state>
                                 <connections>
-                                    <action selector="tappedListButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="cRA-eP-Iyk"/>
+                                    <segue destination="PHO-bY-aav" kind="show" id="7YT-Tm-eel"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -309,7 +309,7 @@
                             <constraint firstItem="WKR-OU-sDK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="za5-Hu-2Qi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="nUA-sf-4Wv">
+                    <navigationItem key="navigationItem" title=" " id="nUA-sf-4Wv">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="uO3-L0-sTD">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -334,6 +334,16 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="116.51785714285714"/>
         </scene>
+        <!--WeatherList-->
+        <scene sceneID="j66-0W-oq9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WeatherList" id="PHO-bY-aav" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="v2T-Lr-qeK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="prE-jh-NV0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1579" y="117"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="oyc-YU-PAQ">
             <objects>
@@ -343,6 +353,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

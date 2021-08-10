@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  WeatherExample
 //
 //  Created by User on 6.08.21.
@@ -9,7 +9,7 @@ import PKHUD
 import SkyFloatingLabelTextField
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet private weak var cityTextField: SkyFloatingLabelTextField!
     @IBOutlet private weak var descriptionLabel: UILabel!
@@ -47,10 +47,10 @@ class ViewController: UIViewController {
     private func configureScreen(with weatherModel: WeatherResponseModel) {
         cityTextField.text = weatherModel.city
         descriptionLabel.text = weatherModel.weather[0].description.capitalizeFirstLetter()
-        temperatureLabel.text = weatherModel.temp.temp.toCelcium().format(f: ".1") + "°C"
-        feelsLikeLabel.text = weatherModel.temp.feelsTemp.toCelcium().format(f: ".1") + "°C"
-        pressureLabel.text = weatherModel.temp.pressure.format(f: "04") + "hPa"
-        humidityLabel.text = weatherModel.temp.humidity.format(f: "02") + "%"
+        temperatureLabel.text = weatherModel.temp.temp.toCelcium().getFormatString(f: ".1") + "°C"
+        feelsLikeLabel.text = weatherModel.temp.feelsTemp.toCelcium().getFormatString(f: ".1") + "°C"
+        pressureLabel.text = weatherModel.temp.pressure.getFormatString(f: "04") + "hPa"
+        humidityLabel.text = weatherModel.temp.humidity.getFormatString(f: "02") + "%"
         sunriseLabel.text =  Date(timeIntervalSince1970: TimeInterval(weatherModel.sun.sunrise)).getFormatString(format: "HH:mm")
         sunsetLabel.text = Date(timeIntervalSince1970: TimeInterval(weatherModel.sun.sunset)).getFormatString(format: "HH:mm")
         refreshBarButtonItem.tintColor = .white
@@ -60,10 +60,10 @@ class ViewController: UIViewController {
     func configureScreen(with weatherModel: WeatherItem) {
         cityTextField.text = weatherModel.cityName
         descriptionLabel.text = weatherModel.mainDescription
-        temperatureLabel.text = weatherModel.temperature.format(f: ".1") + "°C"
-        feelsLikeLabel.text = weatherModel.feelsTemperature.format(f: ".1") + "°C"
-        pressureLabel.text = weatherModel.pressure.format(f: "04") + "hPa"
-        humidityLabel.text = weatherModel.humidity.format(f: "02") + "%"
+        temperatureLabel.text = weatherModel.temperature.getFormatString(f: ".1") + "°C"
+        feelsLikeLabel.text = weatherModel.feelsTemperature.getFormatString(f: ".1") + "°C"
+        pressureLabel.text = weatherModel.pressure.getFormatString(f: "04") + "hPa"
+        humidityLabel.text = weatherModel.humidity.getFormatString(f: "02") + "%"
         sunriseLabel.text = weatherModel.sunrise!.getFormatString(format: "HH:mm")
         sunsetLabel.text = weatherModel.sunset!.getFormatString(format: "HH:mm")
         refreshBarButtonItem.tintColor = .white
@@ -98,11 +98,9 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
         viewModel.refresh()
     }
-    
-    @IBAction private func tappedListButton() { }
 }
-
-extension ViewController: UITextFieldDelegate {
+// MARK: - UITextFieldDelegate
+extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text {
             viewModel.weatherRequest(cityName: text)

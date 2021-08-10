@@ -12,7 +12,7 @@ extension Float {
         return self - 273.15
     }
     
-    func format(f: String) -> String {
+    func getFormatString(f: String) -> String {
         // .3 = "0.000"
         // .1 = "0.0"
         return String(format: "%\(f)f", self)
