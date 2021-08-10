@@ -10,7 +10,7 @@ import Foundation
 struct WeatherResponseModel: Codable {
     let timezone: Int
     let date: Int
-    let sity: String
+    let city: String
     let weather: [WeatherModel]
     let temp: TempWeatherModel
     let sun: SunWeatherModel
@@ -18,7 +18,7 @@ struct WeatherResponseModel: Codable {
     private enum CodingKeys: String, CodingKey {
         case timezone = "timezone"
         case date = "dt"
-        case sity = "name"
+        case city = "name"
         case weather = "weather"
         case temp = "main"
         case sun = "sys"
@@ -27,7 +27,7 @@ struct WeatherResponseModel: Codable {
     init() {
         self.timezone = 0
         self.date = 0
-        self.sity = ""
+        self.city = ""
         self.weather = [WeatherModel()]
         self.temp = TempWeatherModel()
         self.sun = SunWeatherModel()
@@ -36,18 +36,19 @@ struct WeatherResponseModel: Codable {
     init(code: Int, id: Int, timezone: Int, visibility: Int, dt: Int, name: String, base: String, weather: [WeatherModel], temp: TempWeatherModel, sun: SunWeatherModel) {
         self.timezone = timezone
         self.date = dt
-        self.sity = name
+        self.city = name
         self.weather = weather
         self.temp = temp
         self.sun = sun
     }
     
     func toString() -> String {
-        var result = "city: \(self.sity)"
-        result += "\ndate: \(Date(timeIntervalSince1970: TimeInterval(self.date)).getFormatString(format: "E, d MMM yyyy HH:mm:ss Z"))"
-        result += "\nweather: \n\(self.weather[0].toString())"
-        result += "\ntemp: \n\(self.temp.toString())"
-        result += "\nsun: \n\(self.sun.toString())"
+        var result = "\n WeatherResponseModel"
+        result += "\n City: \(self.city)"
+        result += "\n Date: \(Date(timeIntervalSince1970: TimeInterval(self.date)).getFormatString(format: "E, d MMM yyyy HH:mm:ss Z"))"
+        result += "\n Weather: \n\(self.weather[0].toString())"
+        result += "\n Temp: \n\(self.temp.toString())"
+        result += "\n Sun: \n\(self.sun.toString())"
         return result
     }
 }

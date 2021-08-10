@@ -27,8 +27,8 @@
                                 </view>
                                 <blurEffect style="regular"/>
                             </visualEffectView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qM-2C-7zx">
-                                <rect key="frame" x="183" y="98" width="48" height="33.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qM-2C-7zx">
+                                <rect key="frame" x="182" y="98" width="50.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -276,11 +276,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cityLabel" destination="7qM-2C-7zx" id="XAG-uE-DtL"/>
                         <outlet property="descriptionLabel" destination="i6l-Le-Jee" id="gPK-5J-eu8"/>
                         <outlet property="feelsLikeLabel" destination="AkU-zh-AhW" id="dpY-gq-TN2"/>
                         <outlet property="humidityLabel" destination="IuW-st-Qbk" id="xuB-0J-RI0"/>
                         <outlet property="pressureLabel" destination="2pv-Tj-06J" id="W8k-jd-ond"/>
-                        <outlet property="sityLabel" destination="7qM-2C-7zx" id="XAG-uE-DtL"/>
                         <outlet property="sunriseLabel" destination="EcZ-yU-rf8" id="8h9-6Y-DH5"/>
                         <outlet property="sunsetLabel" destination="z6x-le-whT" id="GHE-qt-O4G"/>
                         <outlet property="temperatureLabel" destination="kAY-J9-sen" id="O6F-VF-Azb"/>

@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet private weak var sityLabel: UILabel!
+    @IBOutlet private weak var cityLabel: UILabel!
     // TODO: SkyFloatingTextField
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     
     private func bindWeatherViewModel() {
         _ =  viewModel.weather.observeNext(with: { [unowned self] weatherModel in
-            guard weatherModel.sity != "" else { return }
+            guard weatherModel.city != "" else { return }
             DispatchQueue.main.async {
                 self.configureScreen(with: weatherModel)
             }
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     private func configureScreen(with weatherModel: WeatherResponseModel) {
-        sityLabel.text = weatherModel.sity
+        cityLabel.text = weatherModel.city
         descriptionLabel.text = weatherModel.weather[0].description.capitalizeFirstLetter()
         temperatureLabel.text = weatherModel.temp.temp.toCelcium().format(f: ".1") + "°C"
         feelsLikeLabel.text = weatherModel.temp.feelsTemp.toCelcium().format(f: ".1") + "°C"
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func tappedRefreshButton(_ sender: Any) {
-        viewModel.weatherRequest()
+        viewModel.weatherRequest(cityName: "Grodno") // from textField
         // TODO: downloading PKHUD && block UI
     }
 }

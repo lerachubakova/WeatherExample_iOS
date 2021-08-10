@@ -27,6 +27,7 @@
 		CEE2721226BD5F3D0092C200 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE2721026BD5F3D0092C200 /* LaunchScreen.storyboard */; };
 		CEE2722226BD70C20092C200 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2722126BD70C20092C200 /* ResponseModel.swift */; };
 		CEE2722426BD73E90092C200 /* WeatherResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE2722326BD73E90092C200 /* WeatherResponseModel.swift */; };
+		CEEF600A26C2449900B41A6B /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEF600926C2449900B41A6B /* APIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		CEE2721326BD5F3D0092C200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEE2722126BD70C20092C200 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		CEE2722326BD73E90092C200 /* WeatherResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponseModel.swift; sourceTree = "<group>"; };
+		CEEF600926C2449900B41A6B /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		CE01546E26C112720076769C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CEEF600926C2449900B41A6B /* APIConstants.swift */,
 				CE01546F26C1127B0076769C /* Extensions */,
 			);
 			path = Utils;
@@ -336,6 +339,7 @@
 			files = (
 				CEE2720726BD5F3B0092C200 /* ViewController.swift in Sources */,
 				CE01547326C1153C0076769C /* FloatExtensions.swift in Sources */,
+				CEEF600A26C2449900B41A6B /* APIConstants.swift in Sources */,
 				CEE2720326BD5F3B0092C200 /* AppDelegate.swift in Sources */,
 				CE01547126C1128D0076769C /* StringExtensions.swift in Sources */,
 				CEE2720526BD5F3B0092C200 /* SceneDelegate.swift in Sources */,

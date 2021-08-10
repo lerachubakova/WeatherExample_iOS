@@ -7,25 +7,39 @@
 
 import Foundation
 
-class NetworkManager {
-    static let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?q=minsk&appid=d56b344d09f0de91f1df36c266fd49db")!
-    // TODO: query
+final class NetworkManager {
+    private static let defaultSession = URLSession(configuration: .default)
+    private static var dataTask: URLSessionDataTask?
     
-    static func makeWeatherRequest( completion: @escaping (ResponseModel?, WeatherResponseModel?) -> Void ) {
-        var result: (ResponseModel?, WeatherResponseModel?)
-      
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
+    static func makeWeatherRequest(cityName: String, completion: @escaping (ResponseModel?, WeatherResponseModel?) -> Void ) {
+       
+        guard var urlComponents = URLComponents(string: APIConstants.baseURL) else { return }
+        
+        urlComponents.queryItems =
+            [URLQueryItem(name: APIConstants.nameСity, value: cityName),
+             URLQueryItem(name: APIConstants.nameID, value: APIConstants.valueID)]
+        
+        guard let url = urlComponents.url else { return }
+            
+        dataTask = defaultSession.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
-                print("Error: \(error!.localizedDescription)")
+                print("\n Error: \(error!.localizedDescription)")
                 return
             }
             
-            if let data = data {
-                result.0 = try? JSONDecoder().decode(ResponseModel.self, from: data)
-                result.1 = try? JSONDecoder().decode(WeatherResponseModel.self, from: data)
-                
-                completion(result.0, result.1)
+            // debug
+            if response != nil {
+                print("\n", response!.debugDescription)
             }
-        }.resume()
+            
+            if let data = data {
+                let responseMessage = try? JSONDecoder().decode(ResponseModel.self, from: data)
+                let weather = try? JSONDecoder().decode(WeatherResponseModel.self, from: data)
+    
+                completion(responseMessage, weather)
+            }
+        }
+        
+        dataTask?.resume()
     }
 }
