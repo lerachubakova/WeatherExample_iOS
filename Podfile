@@ -6,7 +6,9 @@ target 'WeatherExample' do
   use_frameworks!
 
   # Pods for WeatherExample
-  pod 'SwiftLint','0.43.1'
-  pod 'ReactiveKit','3.17.4'
   pod 'Bond','7.8.1'
+  pod 'PKHUD','5.3.0'
+  pod 'ReactiveKit','3.17.4'
+  pod 'SkyFloatingLabelTextField','4.0.0'
+  pod 'SwiftLint','0.43.1'
 end

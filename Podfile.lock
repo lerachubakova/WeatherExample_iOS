@@ -3,27 +3,35 @@ PODS:
     - Differ (~> 1.4)
     - ReactiveKit (~> 3.14)
   - Differ (1.4.5)
+  - PKHUD (5.3.0)
   - ReactiveKit (3.17.4)
+  - SkyFloatingLabelTextField (4.0.0)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - Bond (= 7.8.1)
+  - PKHUD (= 5.3.0)
   - ReactiveKit (= 3.17.4)
+  - SkyFloatingLabelTextField (= 4.0.0)
   - SwiftLint (= 0.43.1)
 
 SPEC REPOS:
   trunk:
     - Bond
     - Differ
+    - PKHUD
     - ReactiveKit
+    - SkyFloatingLabelTextField
     - SwiftLint
 
 SPEC CHECKSUMS:
   Bond: 87075c7f20f37ea3e73dc7057fce839787bf46eb
   Differ: 3b6bd78e2b20cc795d9a86f7641d087524e4273e
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   ReactiveKit: f9f9e079efa39312c597bf1508ef4810d111ce76
+  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: f6f93a6b2440686e9c1da464d37a44a312515f7b
+PODFILE CHECKSUM: 6812c0369b0fb1ccebd875fcc0831d0f9e73f291
 
 COCOAPODS: 1.10.1
