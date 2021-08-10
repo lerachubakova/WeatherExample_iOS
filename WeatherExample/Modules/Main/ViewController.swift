@@ -55,13 +55,15 @@ class ViewController: UIViewController {
         sunsetLabel.text = sunsetDate.getFormatString(format: "HH:mm")
     }
     
-    func startSearch() {
+    private func startSearch() {
         viewModel.weatherRequest(cityName: cityTextField.text ?? "Gomel")
     }
     
     func blockUI() {
-        HUD.show(.progress)
-        view.isUserInteractionEnabled = false
+        DispatchQueue.main.async { [unowned self] in
+            HUD.show(.progress)
+            view.isUserInteractionEnabled = false
+        }
     }
     
     func enableUI(isSuccess: Bool) {
@@ -79,16 +81,12 @@ class ViewController: UIViewController {
     @IBAction private func tappedRefreshButton() {
         self.view.endEditing(true)
         startSearch()
-        blockUI()
     }
 }
 
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         startSearch()
-        DispatchQueue.main.async { [unowned self] in
-           blockUI()
-        }
         return self.view.endEditing(true)
     }
 }

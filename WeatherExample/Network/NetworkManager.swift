@@ -26,7 +26,6 @@ final class NetworkManager {
                 return
             }
             
-            // debug
             if response != nil {
                 print("\n", response!.debugDescription)
             }

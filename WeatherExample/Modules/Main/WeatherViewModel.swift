@@ -19,6 +19,7 @@ class WeatherViewModel {
     }
     
     func weatherRequest(cityName: String) {
+        controller?.blockUI()
         NetworkManager.makeWeatherRequest(cityName: cityName) { [unowned self] (responseMessage, weatherResponseModel) in
             if let response = responseMessage {
                 print(" Code: \(response.code),\n Message: \(response.message)")
