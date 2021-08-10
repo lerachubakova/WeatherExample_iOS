@@ -14,7 +14,8 @@ class WeatherViewModel {
     
     init(vc: ViewController) {
         self.controller = vc
-        // weatherRequest(cityName: "Brest") // last from CoreData
+        // weatherRequest(cityName: "Brest")
+        // TODO: get last from CoreData
     }
     
     func weatherRequest(cityName: String) {
@@ -22,11 +23,14 @@ class WeatherViewModel {
             if let response = responseMessage {
                 print(" Code: \(response.code),\n Message: \(response.message)")
             }
-            guard let weatherResponse = weatherResponseModel else { return }
+            guard let weatherResponse = weatherResponseModel else {
+                controller?.enableUI(isSuccess: false)
+                return
+            }
             print(weatherResponse.toString())
             self.weather.value = weatherResponse
             saveInCoreData()
-            controller?.enableUI()
+            controller?.enableUI(isSuccess: true)
         }
     }
     

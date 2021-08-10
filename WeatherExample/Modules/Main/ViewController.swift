@@ -5,6 +5,7 @@
 //  Created by User on 6.08.21.
 //
 
+import PKHUD
 import SkyFloatingLabelTextField
 import UIKit
 
@@ -54,20 +55,40 @@ class ViewController: UIViewController {
         sunsetLabel.text = sunsetDate.getFormatString(format: "HH:mm")
     }
     
-    func enableUI() {
-        // TODO: enable UI
-        // TODO: off krutiolka
+    func startSearch() {
+        viewModel.weatherRequest(cityName: cityTextField.text ?? "Gomel")
+    }
+    
+    func blockUI() {
+        HUD.show(.progress)
+        view.isUserInteractionEnabled = false
+    }
+    
+    func enableUI(isSuccess: Bool) {
+        DispatchQueue.main.async { [unowned self] in
+            if isSuccess {
+                HUD.flash(.success, delay: 0.5)
+            } else {
+                HUD.flash(.error, delay: 0.7)
+            }
+            view.isUserInteractionEnabled = true
+        }
+       
     }
     
     @IBAction private func tappedRefreshButton() {
-        viewModel.weatherRequest(cityName: cityTextField.text ?? "Gomel")
-        // TODO: downloading PKHUD && block UI
+        self.view.endEditing(true)
+        startSearch()
+        blockUI()
     }
 }
 
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        viewModel.weatherRequest(cityName: textField.text ?? "Gomel")
+        startSearch()
+        DispatchQueue.main.async { [unowned self] in
+           blockUI()
+        }
         return self.view.endEditing(true)
     }
 }

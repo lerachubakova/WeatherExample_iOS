@@ -12,7 +12,7 @@ final class NetworkManager {
     private static var dataTask: URLSessionDataTask?
     
     static func makeWeatherRequest(cityName: String, completion: @escaping (ResponseModel?, WeatherResponseModel?) -> Void ) {
-        guard !cityName.isEmpty, var urlComponents = URLComponents(string: APIConstants.baseURL) else { return }
+        guard var urlComponents = URLComponents(string: APIConstants.baseURL) else { return }
         
         urlComponents.queryItems =
             [URLQueryItem(name: APIConstants.nameСity, value: cityName),
