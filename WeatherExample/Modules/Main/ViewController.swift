@@ -5,12 +5,12 @@
 //  Created by User on 6.08.21.
 //
 
+import SkyFloatingLabelTextField
 import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet private weak var cityLabel: UILabel!
-    // TODO: SkyFloatingTextField
+    @IBOutlet private weak var cityTextField: SkyFloatingLabelTextField!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var feelsLikeLabel: UILabel!
@@ -28,6 +28,10 @@ class ViewController: UIViewController {
         bindWeatherViewModel()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     private func bindWeatherViewModel() {
         _ =  viewModel.weather.observeNext(with: { [unowned self] weatherModel in
             guard weatherModel.city != "" else { return }
@@ -38,7 +42,7 @@ class ViewController: UIViewController {
     }
     
     private func configureScreen(with weatherModel: WeatherResponseModel) {
-        cityLabel.text = weatherModel.city
+        cityTextField.text = weatherModel.city
         descriptionLabel.text = weatherModel.weather[0].description.capitalizeFirstLetter()
         temperatureLabel.text = weatherModel.temp.temp.toCelcium().format(f: ".1") + "°C"
         feelsLikeLabel.text = weatherModel.temp.feelsTemp.toCelcium().format(f: ".1") + "°C"
@@ -55,8 +59,15 @@ class ViewController: UIViewController {
         // TODO: off krutiolka
     }
     
-    @IBAction private func tappedRefreshButton(_ sender: Any) {
-        viewModel.weatherRequest(cityName: "Grodno") // from textField
+    @IBAction private func tappedRefreshButton() {
+        viewModel.weatherRequest(cityName: cityTextField.text ?? "Gomel")
         // TODO: downloading PKHUD && block UI
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        viewModel.weatherRequest(cityName: textField.text ?? "Gomel")
+        return self.view.endEditing(true)
     }
 }
