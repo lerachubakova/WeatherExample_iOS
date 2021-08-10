@@ -45,7 +45,7 @@ struct WeatherResponseModel: Codable {
     func toString() -> String {
         var result = "\n WeatherResponseModel"
         result += "\n City: \(self.city)"
-        result += "\n Date: \(Date(timeIntervalSince1970: TimeInterval(self.date)).getFormatString(format: "E, d MMM yyyy HH:mm:ss Z"))"
+        result += "\n Date: \(self.date)"
         result += "\n Weather: \n\(self.weather[0].toString())"
         result += "\n Temp: \n\(self.temp.toString())"
         result += "\n Sun: \n\(self.sun.toString())"

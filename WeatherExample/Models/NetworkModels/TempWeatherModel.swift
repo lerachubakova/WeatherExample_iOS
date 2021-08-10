@@ -35,8 +35,8 @@ struct TempWeatherModel: Codable {
     }
     
     func toString() -> String {
-        var result = "\ttemp: \(self.temp.toCelcium())"
-        result += "\n\tfeelsTemp: \(self.feelsTemp.toCelcium())"
+        var result = "\ttemp: \(self.temp)"
+        result += "\n\tfeelsTemp: \(self.feelsTemp)"
         result += "\n\tpressure: \(self.pressure)"
         result += "\n\thumidity: \(self.humidity)"
         return result

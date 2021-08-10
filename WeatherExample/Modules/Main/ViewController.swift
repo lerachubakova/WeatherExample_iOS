@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet private weak var humidityLabel: UILabel!
     @IBOutlet private weak var sunriseLabel: UILabel!
     @IBOutlet private weak var sunsetLabel: UILabel!
+    @IBOutlet private weak var refreshBarButtonItem: UIBarButtonItem!
+    @IBOutlet private weak var listButton: UIButton!
     
     private var viewModel: WeatherViewModel!
     
@@ -49,14 +51,28 @@ class ViewController: UIViewController {
         feelsLikeLabel.text = weatherModel.temp.feelsTemp.toCelcium().format(f: ".1") + "°C"
         pressureLabel.text = weatherModel.temp.pressure.format(f: "04") + "hPa"
         humidityLabel.text = weatherModel.temp.humidity.format(f: "02") + "%"
-        let sunriseDate = Date(timeIntervalSince1970: TimeInterval(weatherModel.sun.sunrise))
-        let sunsetDate = Date(timeIntervalSince1970: TimeInterval(weatherModel.sun.sunset))
-        sunriseLabel.text = sunriseDate.getFormatString(format: "HH:mm")
-        sunsetLabel.text = sunsetDate.getFormatString(format: "HH:mm")
+        sunriseLabel.text =  Date(timeIntervalSince1970: TimeInterval(weatherModel.sun.sunrise)).getFormatString(format: "HH:mm")
+        sunsetLabel.text = Date(timeIntervalSince1970: TimeInterval(weatherModel.sun.sunset)).getFormatString(format: "HH:mm")
+        refreshBarButtonItem.tintColor = .white
+        listButton.isHidden = false
     }
     
-    private func startSearch() {
-        viewModel.weatherRequest(cityName: cityTextField.text ?? "Gomel")
+    func configureScreen(with weatherModel: WeatherItem) {
+        cityTextField.text = weatherModel.cityName
+        descriptionLabel.text = weatherModel.mainDescription
+        temperatureLabel.text = weatherModel.temperature.format(f: ".1") + "°C"
+        feelsLikeLabel.text = weatherModel.feelsTemperature.format(f: ".1") + "°C"
+        pressureLabel.text = weatherModel.pressure.format(f: "04") + "hPa"
+        humidityLabel.text = weatherModel.humidity.format(f: "02") + "%"
+        sunriseLabel.text = weatherModel.sunrise!.getFormatString(format: "HH:mm")
+        sunsetLabel.text = weatherModel.sunset!.getFormatString(format: "HH:mm")
+        refreshBarButtonItem.tintColor = .white
+        listButton.isHidden = false
+    }
+    
+    func cleanScreen() {
+        refreshBarButtonItem.tintColor = .clear
+        listButton.isHidden = true
     }
     
     func blockUI() {
@@ -80,13 +96,17 @@ class ViewController: UIViewController {
     
     @IBAction private func tappedRefreshButton() {
         self.view.endEditing(true)
-        startSearch()
+        viewModel.refresh()
     }
+    
+    @IBAction private func tappedListButton() { }
 }
 
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        startSearch()
+        if let text = textField.text {
+            viewModel.weatherRequest(cityName: text)
+        }
         return self.view.endEditing(true)
     }
 }

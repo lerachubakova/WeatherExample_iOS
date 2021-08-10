@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="WeatherItem" representedClassName="WeatherItem" syncable="YES">
+        <attribute name="cityName" attributeType="String"/>
+        <attribute name="feelsTemperature" attributeType="Float" usesScalarValueType="YES"/>
+        <attribute name="humidity" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="mainDescription" attributeType="String"/>
+        <attribute name="measurementDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="pressure" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="requestDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sunrise" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sunset" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="temperature" attributeType="Float" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="WeatherItem" positionX="-63" positionY="-18" width="128" height="179"/>
+    </elements>
 </model>

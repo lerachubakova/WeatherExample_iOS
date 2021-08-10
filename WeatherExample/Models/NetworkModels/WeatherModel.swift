@@ -19,6 +19,6 @@ struct WeatherModel: Codable {
     }
     
     func toString() -> String {
-        "\tdescription: \(self.description.capitalizeFirstLetter())"
+        "\tdescription: \(self.description)"
     }
 }

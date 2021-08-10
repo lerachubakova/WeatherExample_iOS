@@ -14,8 +14,12 @@ class WeatherViewModel {
     
     init(vc: ViewController) {
         self.controller = vc
-        // weatherRequest(cityName: "Brest")
-        // TODO: get last from CoreData
+        if let weatherItem = CoreDataManager.getLastItem() {
+            controller?.configureScreen(with: weatherItem)
+            weatherRequest(cityName: weatherItem.cityName!)
+        } else {
+            controller?.cleanScreen()
+        }
     }
     
     func weatherRequest(cityName: String) {
@@ -28,14 +32,21 @@ class WeatherViewModel {
                 controller?.enableUI(isSuccess: false)
                 return
             }
-            print(weatherResponse.toString())
             self.weather.value = weatherResponse
-            saveInCoreData()
+            saveInCoreData(item: weatherResponse)
             controller?.enableUI(isSuccess: true)
         }
     }
     
-    private func saveInCoreData() {
-        // TODO: save in core data
+    func refresh() {
+        if let weatherItem = CoreDataManager.getLastItem() {
+            weatherRequest(cityName: weatherItem.cityName!)
+        }
+    }
+    
+    private func saveInCoreData(item: WeatherResponseModel) {
+        DispatchQueue.main.async {
+            CoreDataManager.addItem(item)
+        }
     }
 }

@@ -25,10 +25,50 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="regular"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ApL-CX-v8n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="103.5" y="93" width="207" height="56"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="alphabet" keyboardAppearance="light" returnKeyType="search"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Enter your city"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value=" "/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value=" "/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="0.69843570128181909" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="X83-jo-57M"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6l-Le-Jee">
+                                <rect key="frame" x="122" y="164" width="170.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lk1-xN-9we">
-                                <rect key="frame" x="10" y="189" width="399" height="276"/>
+                                <rect key="frame" x="10" y="202" width="399" height="276"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aMe-Tr-zgD" userLabel="Temperature Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="399" height="82"/>
@@ -112,8 +152,8 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000hPa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pv-Tj-06J">
-                                                        <rect key="frame" x="16" y="0.0" width="168" height="54"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0hPa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pv-Tj-06J">
+                                                        <rect key="frame" x="54" y="0.0" width="91.5" height="54"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="54" id="Znf-hF-p9h"/>
                                                         </constraints>
@@ -143,8 +183,8 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuW-st-Qbk">
-                                                        <rect key="frame" x="45" y="0.0" width="109.5" height="54"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuW-st-Qbk">
+                                                        <rect key="frame" x="70.5" y="0.0" width="58.5" height="54"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="54" id="Nz5-kw-TqQ"/>
                                                         </constraints>
@@ -234,46 +274,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ApL-CX-v8n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="103.5" y="93" width="207" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="alphabet" keyboardAppearance="light" returnKeyType="search"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Enter your city"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value=" "/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value=" "/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                        <color key="value" white="1" alpha="0.69843570128181909" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-2B-znq">
+                                <rect key="frame" x="176.5" y="528" width="61" height="45"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="list.bullet.rectangle" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="43"/>
+                                </state>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="X83-jo-57M"/>
+                                    <action selector="tappedListButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="cRA-eP-Iyk"/>
                                 </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6l-Le-Jee">
-                                <rect key="frame" x="122" y="151" width="170.5" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.51969462020000001" green="0.79742753820000001" blue="0.92778053670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -289,9 +300,11 @@
                             <constraint firstItem="nbY-Lz-636" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="S9z-NZ-gYP"/>
                             <constraint firstItem="i6l-Le-Jee" firstAttribute="top" secondItem="ApL-CX-v8n" secondAttribute="bottom" constant="15" id="TbP-zq-fOI"/>
                             <constraint firstItem="ApL-CX-v8n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="WDi-bt-hYO"/>
+                            <constraint firstItem="hVl-2B-znq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xfy-MY-fMQ"/>
                             <constraint firstAttribute="trailing" secondItem="nbY-Lz-636" secondAttribute="trailing" id="cU7-7T-FQG"/>
                             <constraint firstItem="ApL-CX-v8n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dA2-n1-t4Q"/>
                             <constraint firstItem="lk1-xN-9we" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="hf7-L1-bV6"/>
+                            <constraint firstItem="hVl-2B-znq" firstAttribute="top" secondItem="lk1-xN-9we" secondAttribute="bottom" constant="50" id="qQb-kg-l9t"/>
                             <constraint firstItem="ApL-CX-v8n" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="rjQ-7J-VgN"/>
                             <constraint firstItem="WKR-OU-sDK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="za5-Hu-2Qi"/>
                         </constraints>
@@ -309,7 +322,9 @@
                         <outlet property="descriptionLabel" destination="i6l-Le-Jee" id="gPK-5J-eu8"/>
                         <outlet property="feelsLikeLabel" destination="AkU-zh-AhW" id="dpY-gq-TN2"/>
                         <outlet property="humidityLabel" destination="IuW-st-Qbk" id="xuB-0J-RI0"/>
+                        <outlet property="listButton" destination="hVl-2B-znq" id="i7R-g3-PF3"/>
                         <outlet property="pressureLabel" destination="2pv-Tj-06J" id="W8k-jd-ond"/>
+                        <outlet property="refreshBarButtonItem" destination="uO3-L0-sTD" id="chO-KT-mbz"/>
                         <outlet property="sunriseLabel" destination="EcZ-yU-rf8" id="8h9-6Y-DH5"/>
                         <outlet property="sunsetLabel" destination="z6x-le-whT" id="GHE-qt-O4G"/>
                         <outlet property="temperatureLabel" destination="kAY-J9-sen" id="O6F-VF-Azb"/>
@@ -343,7 +358,13 @@
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="ApL-CX-v8n">
+            <size key="intrinsicContentSize" width="207" height="55.927734375"/>
+        </designable>
+    </designables>
     <resources>
         <image name="imgMainBackground" width="1600" height="1200"/>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
     </resources>
 </document>
