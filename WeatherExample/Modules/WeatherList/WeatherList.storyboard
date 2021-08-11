@@ -54,11 +54,30 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="jmx-3G-Hc6" id="YsR-hM-A4O"/>
+                        <segue destination="0Vc-Up-Vat" kind="show" identifier="toMainSegue" id="6j8-Zr-5xT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-16" y="82"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="oxX-qL-CRc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="0Vc-Up-Vat" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Gxh-SC-nmh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ye-ec-Skp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="480" y="82"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="dge-YA-fuw">
+            <objects>
+                <viewControllerPlaceholder id="YGH-Pv-1o4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aus-4v-ZHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-41" y="-280"/>
         </scene>
     </scenes>
     <resources>

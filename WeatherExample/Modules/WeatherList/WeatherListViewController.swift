@@ -12,11 +12,19 @@ class WeatherListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     private var viewModel: WeatherListViewModel!
+    private var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = WeatherListViewModel(vc: self)
         configureTableView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "toMainSegue", let nvc = segue.destination as? UINavigationController, let vc = nvc.children[0] as? WeatherViewController else {
+            return
+        }
+        vc.setScreenTypeNotMain(weatherItem: viewModel.weatherItems[index])
     }
     
     func configureTableView() {
@@ -59,5 +67,10 @@ class WeatherListViewController: UIViewController {
         trashAction.image = UIImage(systemName: "trash.fill")
         trashAction.backgroundColor = .systemRed
         return UISwipeActionsConfiguration(actions: [trashAction])
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.index = indexPath.row
+        self.performSegue(withIdentifier: "toMainSegue", sender: nil)
     }
  }

@@ -11,7 +11,7 @@
         <!-- -->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="WeatherExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="WeatherExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ApL-CX-v8n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ApL-CX-v8n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                 <rect key="frame" x="103.5" y="93" width="207" height="56"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="alphabet" keyboardAppearance="light" returnKeyType="search"/>
@@ -61,17 +61,17 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="X83-jo-57M"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6l-Le-Jee">
-                                <rect key="frame" x="122" y="164" width="170.5" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lk1-xN-9we">
-                                <rect key="frame" x="10" y="202" width="399" height="276"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="lk1-xN-9we">
+                                <rect key="frame" x="10" y="174" width="399" height="400"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6l-Le-Jee">
+                                        <rect key="frame" x="0.0" y="0.0" width="399" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aMe-Tr-zgD" userLabel="Temperature Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="399" height="82"/>
+                                        <rect key="frame" x="0.0" y="40" width="399" height="82"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOB-jd-cea">
                                                 <rect key="frame" x="0.0" y="0.0" width="199.5" height="82"/>
@@ -138,7 +138,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0K8-OH-80Q" userLabel="Pressure Stack View">
-                                        <rect key="frame" x="0.0" y="97" width="399" height="82"/>
+                                        <rect key="frame" x="0.0" y="139" width="399" height="82"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zY3-Gv-glj">
                                                 <rect key="frame" x="0.0" y="0.0" width="199.5" height="82"/>
@@ -205,7 +205,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-3z-YOR" userLabel="Sun Stack View">
-                                        <rect key="frame" x="0.0" y="194" width="399" height="82"/>
+                                        <rect key="frame" x="0.0" y="238" width="399" height="82"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVI-Si-Iep">
                                                 <rect key="frame" x="0.0" y="0.0" width="199.5" height="82"/>
@@ -271,11 +271,23 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Measure Date: 00.00.0000 00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMX-4v-Wiu">
+                                        <rect key="frame" x="0.0" y="337" width="399" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Date: 00.00.0000 00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUd-VZ-cAg">
+                                        <rect key="frame" x="0.0" y="377" width="399" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-2B-znq">
-                                <rect key="frame" x="176.5" y="528" width="61" height="45"/>
+                                <rect key="frame" x="176.5" y="604" width="61" height="45"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="list.bullet.rectangle" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -290,21 +302,19 @@
                         <color key="backgroundColor" red="0.51969462020000001" green="0.79742753820000001" blue="0.92778053670000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="WKR-OU-sDK" secondAttribute="bottom" id="1By-MP-nK5"/>
-                            <constraint firstItem="lk1-xN-9we" firstAttribute="top" secondItem="i6l-Le-Jee" secondAttribute="bottom" constant="15" id="4hg-jk-TIO"/>
                             <constraint firstItem="nbY-Lz-636" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="A4T-1I-cC9"/>
                             <constraint firstAttribute="bottom" secondItem="nbY-Lz-636" secondAttribute="bottom" id="CT5-Yq-4Ti"/>
                             <constraint firstItem="WKR-OU-sDK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GkG-M9-AH1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lk1-xN-9we" secondAttribute="trailing" constant="5" id="MYg-MG-7SP"/>
-                            <constraint firstItem="i6l-Le-Jee" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mds-QA-K4p"/>
+                            <constraint firstItem="lk1-xN-9we" firstAttribute="top" secondItem="ApL-CX-v8n" secondAttribute="bottom" constant="25" id="NwG-JS-Fr9"/>
                             <constraint firstItem="WKR-OU-sDK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PgZ-mh-bSN"/>
                             <constraint firstItem="nbY-Lz-636" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="S9z-NZ-gYP"/>
-                            <constraint firstItem="i6l-Le-Jee" firstAttribute="top" secondItem="ApL-CX-v8n" secondAttribute="bottom" constant="15" id="TbP-zq-fOI"/>
                             <constraint firstItem="ApL-CX-v8n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="WDi-bt-hYO"/>
                             <constraint firstItem="hVl-2B-znq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xfy-MY-fMQ"/>
                             <constraint firstAttribute="trailing" secondItem="nbY-Lz-636" secondAttribute="trailing" id="cU7-7T-FQG"/>
                             <constraint firstItem="ApL-CX-v8n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dA2-n1-t4Q"/>
                             <constraint firstItem="lk1-xN-9we" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="hf7-L1-bV6"/>
-                            <constraint firstItem="hVl-2B-znq" firstAttribute="top" secondItem="lk1-xN-9we" secondAttribute="bottom" constant="50" id="qQb-kg-l9t"/>
+                            <constraint firstItem="hVl-2B-znq" firstAttribute="top" secondItem="lk1-xN-9we" secondAttribute="bottom" constant="30" id="qQb-kg-l9t"/>
                             <constraint firstItem="ApL-CX-v8n" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="rjQ-7J-VgN"/>
                             <constraint firstItem="WKR-OU-sDK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="za5-Hu-2Qi"/>
                         </constraints>
@@ -323,8 +333,10 @@
                         <outlet property="feelsLikeLabel" destination="AkU-zh-AhW" id="dpY-gq-TN2"/>
                         <outlet property="humidityLabel" destination="IuW-st-Qbk" id="xuB-0J-RI0"/>
                         <outlet property="listButton" destination="hVl-2B-znq" id="i7R-g3-PF3"/>
+                        <outlet property="measureDateLabel" destination="HMX-4v-Wiu" id="BlP-ke-hDN"/>
                         <outlet property="pressureLabel" destination="2pv-Tj-06J" id="W8k-jd-ond"/>
                         <outlet property="refreshBarButtonItem" destination="uO3-L0-sTD" id="chO-KT-mbz"/>
+                        <outlet property="requestDateLabel" destination="JUd-VZ-cAg" id="bUp-Ls-uRP"/>
                         <outlet property="sunriseLabel" destination="EcZ-yU-rf8" id="8h9-6Y-DH5"/>
                         <outlet property="sunsetLabel" destination="z6x-le-whT" id="GHE-qt-O4G"/>
                         <outlet property="temperatureLabel" destination="kAY-J9-sen" id="O6F-VF-Azb"/>
